@@ -71,7 +71,7 @@ public class ExternalMusicLoader : MonoBehaviour {
 			WWW www = new WWW(path);
 			yield return www;
 			try {
-				NamedClip toWrite = new NamedClip(path, www.GetAudioClip(false, false, AudioType.WAV), true);
+				NamedClip toWrite = new NamedClip(path, www.GetAudioClip(false, true), true);
 				ExternalMusicLoader.clips.Add(toWrite);
 				//ExternalConsole.Log("Song Size (MB)", Mathf.Round((float)www.bytesDownloaded / 1000000f).ToString());
 				this.controller.clip = toWrite.clip;
