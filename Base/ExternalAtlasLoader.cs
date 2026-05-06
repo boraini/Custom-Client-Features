@@ -42,6 +42,8 @@ public class ExternalAtlasLoader : MonoBehaviour {
                 this.atlasTexts.Add(asset);
             } else if (asset.path.Contains(".png")) {
                 Texture2D texture = www.texture;
+                texture.name = Path.GetFileNameWithoutExtension(asset.name).Replace("_gui", "").Replace("_entity", "")
+                    .Replace("_avatar", "");
                 //ExternalConsole.Log("Texture Size (KB)", Mathf.Round((float)www.bytesDownloaded / 1000f).ToString());
                 asset.loaded = true;
                 asset.SetData(Sprite.Create(texture, new Rect(0f, 0f, (float)texture.width, (float)texture.height), new Vector2(0f, 0f)));
